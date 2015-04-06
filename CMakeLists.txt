@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 3.2)
-
+cmake_minimum_required(VERSION 3.1)
 # CMake file for compiling our sources
+
+add_definitions(-DSDL_MAIN_NEEDED)
 
 # Environment settings
 include (cmake/env.cmake)

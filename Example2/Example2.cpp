@@ -202,7 +202,7 @@ int main(int argc, char** argv)
     bool AppRunning = true;
 
     // Initialize the SDL2 library.
-    if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         std::cerr << "Failed to initialize SDL2" << std::endl;
         return 0;
@@ -224,10 +224,10 @@ int main(int argc, char** argv)
     // Initialize GLew
     glewExperimental = true;
     GLenum glewStatus = glewInit();
-
     if (glewStatus != GLEW_OK)
     {
-        AppRunning = false;
+        std::cerr << "GLEW error: " << glewGetErrorString(glewStatus) << std::endl;
+        exit(1);
     }
 
     // Render settings.
